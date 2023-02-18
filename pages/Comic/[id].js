@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Link from 'next/link';
+// import Button from 'react-bootstrap/Button';
+// import Link from 'next/link';
 import { getSingleComic } from '../../utils/data/comicData';
 import ReviewCard from '../../components/ReviewCard';
 

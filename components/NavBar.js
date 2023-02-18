@@ -8,10 +8,10 @@ import {
   Button,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
-import { useAuth } from '../utils/context/authContext';
+// import { useAuth } from '../utils/context/authContext';
 
 export default function NavBar() {
-  const { user } = useAuth();
+  // const { user } = useAuth();
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>

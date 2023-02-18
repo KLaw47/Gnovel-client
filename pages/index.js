@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
+// import { Button } from 'react-bootstrap';
 import Search from '../components/Search';
 import ComicCard from '../components/ComicCard';
-import { Button } from 'react-bootstrap';
-import { signOut } from '../utils/auth';
 import { getComics } from '../utils/data/comicData';
 
 function Home() {
