@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactStars from 'react-stars';
 import Card from 'react-bootstrap/Card';
 
 function ReviewCard({ reviewObj }) {
@@ -7,8 +8,7 @@ function ReviewCard({ reviewObj }) {
     <Card className="card" style={{ width: '20rem', margin: '10px' }}>
       <Card.Body>
         <Card.Title>{reviewObj.text}</Card.Title>
-        <p>{reviewObj.rating}</p>
-
+        <ReactStars value={reviewObj.rating} edit={false} />
       </Card.Body>
     </Card>
   );

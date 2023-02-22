@@ -1,24 +1,29 @@
-// /* eslint-disable @next/next/no-img-element */
-// import React, { useEffect, useState } from 'react';
-// import { getSingleReview } from '../../utils/data/reviewData';
-// import { useRouter } from 'next/router';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import ReviewForm from '../../components/ReviewForm';
+// import { useAuth } from '../../utils/context/authContext';
+import { getSingleComic } from '../../utils/data/comicData';
+import ComicCard from '../../components/ComicCard';
 
-// export default function ViewReviewDetail() {
-//   const [reviewDetail, setReviewDetail] = useState({});
-//   const router = useRouter();
-//   const { id } = router.query;
+export default function AddReview() {
+  const router = useRouter();
+  const { id } = router.query;
+  // const { user } = useAuth();
+  const [comic, setComic] = useState({});
 
-//   const getReviewContent = () => {
-//     getSingleReview(id).then(setReviewDetail);
-//   };
+  const getContent = () => {
+    getSingleComic(id).then(setComic);
+  };
 
-//   useEffect(() => {
-//     getReviewContent();
-//   }, []);
+  useEffect(() => {
+    getContent();
+  }, [id]);
 
-//   return (
-//     <div className="mt-5 d-flex flex-wrap">
-
-//     </div>
-//   );
-// }
+  return (
+    <>
+      <ComicCard comicObj={comic} />
+      <ReviewForm comicId={id} />
+    </>
+  );
+}
