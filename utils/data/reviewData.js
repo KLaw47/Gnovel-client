@@ -49,8 +49,8 @@ const updateReview = (review) => new Promise((resolve, reject) => {
     body: JSON.stringify({
       rating: review.rating,
       text: review.text,
-      user_id: review.userId,
-      comic_id: review.comicId,
+      user_id: review.user.id,
+      comic_id: review.comic.id,
     }),
     headers: {
       'content-type': 'application/json',
