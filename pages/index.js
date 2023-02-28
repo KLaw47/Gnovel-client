@@ -19,8 +19,6 @@ function Home() {
     getAllTheComics();
   }, []);
 
-  console.warn(comics);
-
   return (
     <>
       <div className="text-center my-4">

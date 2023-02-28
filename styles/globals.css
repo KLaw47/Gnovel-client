@@ -18,5 +18,32 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: #C6CCB2;
+}
+
+.card {
+  background-color: #093824;
+  color: #E5EAFA;
+}
+
+.custom-btn {
+  background-color: #093824;
+  color: #E5EAFA;
+  border: none;
+}
+
+.custom-btn:hover {
+  background-color: #E5EAFA;
+  color:#093824;
+  border: none;
+}
+
+.user-title {
+  color: #093824;
+}
+
+.user-comics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }

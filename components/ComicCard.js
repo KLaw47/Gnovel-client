@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
+import ReactStars from 'react-stars';
 // import { useAuth } from '../utils/context/authContext';
 
 function ComicCard({ comicObj }) {
@@ -15,7 +16,7 @@ function ComicCard({ comicObj }) {
       </Link>
       <Card.Body>
         <Card.Title>{comicObj.title}</Card.Title>
-
+        <ReactStars value={comicObj.average_rating} edit={false} size={30} />
       </Card.Body>
     </Card>
   );
@@ -26,6 +27,7 @@ ComicCard.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
     thumbnail: PropTypes.string,
+    average_rating: PropTypes.number,
   }).isRequired,
 };
 

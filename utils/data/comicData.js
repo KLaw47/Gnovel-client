@@ -20,7 +20,7 @@ const getSingleComic = (id) => new Promise((resolve, reject) => {
         title: data.title,
         description: data.description,
         thumbnail: data.thumbnail,
-        image: data.image,
+        average_rating: data.averageRating,
         reviews: data.reviews,
       });
     })

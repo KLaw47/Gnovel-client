@@ -75,13 +75,12 @@ function ReviewForm({
         <div className="comic-rating">
           <h2>Rating</h2>
           <Rating
-            allowHover={false}
             size={45}
             ratingValue={formInput.rating}
             onClick={handleRate}
           />
         </div>
-        <Button className="create" type="submit">{reviewObj?.id ? 'Update' : 'Create'} Review</Button>
+        <Button className="custom-btn" type="submit">{reviewObj?.id ? 'Update' : 'Create'} Review</Button>
       </Form>
     </>
   );

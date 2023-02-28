@@ -15,7 +15,6 @@ export default function UserComics() {
   const getThisUser = () => {
     getSingleUser(id).then(setUser);
   };
-  console.warn(user);
 
   const removeFromCollection = (click, comicId) => {
     click.preventDefault();
@@ -24,26 +23,27 @@ export default function UserComics() {
 
   useEffect(() => {
     getThisUser();
-  }, []);
+  }, [id]);
 
   return (
     <div>
       {/* <div className="d-flex flex-column">
         <img src={user.imageUrl} alt={user.lastName} />
       </div> */}
-      <div className="text-white ms-5 details">
+      <div className="user-title">
         <h2>
-          {user.firstName + user.lastName}
+          {user.firstName && user.lastName ? `${user.firstName} ${user.lastName}` : ''}
         </h2>
       </div>
-      <div>
+      <div className="user-comics">
         {user?.comics?.map((comic) => (
-          <>
-            <ComicCard key={comic.id} comicObj={comic} />
-            <Button className="collection" onClick={(click) => removeFromCollection(click, comic.joined_comics[0].id)}>
+          <div key={comic.id}>
+            <ComicCard comicObj={comic} />
+            <Button key={comic.joined_comics[0].id} className="custom-btn" onClick={(click) => removeFromCollection(click, comic.joined_comics[0].id)}>
               Remove from my Collection
             </Button>
-          </>
+          </div>
+
         ))}
       </div>
     </div>
