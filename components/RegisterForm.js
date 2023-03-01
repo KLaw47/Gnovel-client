@@ -38,7 +38,7 @@ function RegisterForm({ user, updateUser }) {
         <Form.Label>Profile Image</Form.Label>
         <Form.Control name="imageUrl" required onChange={handleChange} />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="custom-btn" type="submit">
         Submit
       </Button>
     </Form>

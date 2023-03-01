@@ -20,12 +20,9 @@ export default function ViewComicDetail() {
     getSingleComic(id).then(setComicDetail);
     getSingleUser(user.id).then(setUserData);
   };
-  console.warn(userData.comics);
 
   const addToCollection = () => {
-    if (userData?.comics?.includes(id)) {
-      createUserComic(user.id, id).then(() => router.push('/'));
-    }
+    createUserComic(user.id, id).then(() => router.push('/'));
   };
 
   useEffect(() => {
@@ -48,15 +45,13 @@ export default function ViewComicDetail() {
         </Button> */}
         <>
           {userData?.comics?.find((comic) => comic.id === comicDetail.id) ? null : (
-            <Link href={`/Review/${id}`} passHref>
-              <Button className="collection" onClick={addToCollection}>Add to my Collection</Button>
-            </Link>
+            <Button className="custom-btn" onClick={addToCollection}>Add to my Collection</Button>
           )}
         </>
         <>
           {comicDetail?.reviews?.find((review) => review.user.id === user.id) ? null : (
             <Link href={`/Review/${id}`} passHref>
-              <Button className="reviewLink">Write a review for {comicDetail.title}</Button>
+              <Button className="custom-btn">Write a review for {comicDetail.title}</Button>
             </Link>
           )}
         </>
