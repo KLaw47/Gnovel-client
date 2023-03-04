@@ -25,6 +25,8 @@ export default function UserComics() {
     getThisUser();
   }, [id]);
 
+  console.warn(user);
+
   return (
     <div>
       {/* <div className="d-flex flex-column">

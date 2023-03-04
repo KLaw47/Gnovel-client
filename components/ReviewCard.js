@@ -4,9 +4,17 @@ import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import ReactStars from 'react-stars';
 import Card from 'react-bootstrap/Card';
+import { useRouter } from 'next/router';
 import { useAuth } from '../utils/context/authContext';
+import { deleteReview } from '../utils/data/reviewData';
 
 function ReviewCard({ reviewObj }) {
+  const router = useRouter();
+  const deleteThisReview = () => {
+    if (window.confirm('Delete Review?')) {
+      deleteReview(reviewObj.id).then(() => router.push('/'));
+    }
+  };
   const [isExpanded, setExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -25,9 +33,14 @@ function ReviewCard({ reviewObj }) {
           <Card.Text>{reviewObj.text.substring(0, 100)}...</Card.Text>
         )}
         {reviewObj.user.id === user?.id ? (
-          <Link href={`/Review/edit/${reviewObj.id}`} passHref>
-            <Button className="custom-btn">EDIT</Button>
-          </Link>
+          <>
+            <Link href={`/Review/edit/${reviewObj.id}`} passHref>
+              <Button className="custom-btn">EDIT</Button>
+            </Link>
+            <Button className="custom-btn" onClick={deleteThisReview}>
+              DELETE
+            </Button>
+          </>
         ) : null}
         <Button className="custom-btn" onClick={toggleExpand}>
           {isExpanded ? 'Collapse' : 'Read More'}
