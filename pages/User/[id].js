@@ -7,15 +7,19 @@ import ComicCard from '../../components/ComicCard';
 import { getSingleUser } from '../../utils/data/userData';
 import { deleteUserComic } from '../../utils/data/userComicData';
 import { useAuth } from '../../utils/context/authContext';
+import ImageCard from '../../components/ImageCard';
+import { getImagesByUser } from '../../utils/data/imageData';
 
 export default function UserComics() {
   const [user, setUser] = useState({});
+  const [images, setImages] = useState([]);
   const router = useRouter();
   const { id } = router.query;
   const fUser = useAuth();
 
   const getThisUser = () => {
     getSingleUser(id).then(setUser);
+    getImagesByUser(id).then(setImages);
   };
 
   const removeFromCollection = (click, comicId) => {
@@ -26,8 +30,6 @@ export default function UserComics() {
   useEffect(() => {
     getThisUser();
   }, [id]);
-
-  console.warn(fUser.user.id);
 
   return (
     <div>
@@ -49,7 +51,12 @@ export default function UserComics() {
               </Button>
             ) : null}
           </div>
-
+        ))}
+      </div>
+      <h2>Uploaded Images</h2>
+      <div className="d-flex flex-wrap">
+        {images.map((image) => (
+          <ImageCard key={image.id} imageObj={image} onUpdate={getThisUser} />
         ))}
       </div>
     </div>

@@ -40,9 +40,6 @@ export default function ViewComicDetail() {
           {comicDetail.title}
         </h5>
         <p>Description: {comicDetail.description}</p>
-        {/* <Button className="collection" onClick={addToCollection}>
-          Add to my Collection
-        </Button> */}
         <>
           {userData?.comics?.find((comic) => comic.id === comicDetail.id) ? null : (
             <Button className="custom-btn" onClick={addToCollection}>Add to my Collection</Button>
@@ -55,6 +52,12 @@ export default function ViewComicDetail() {
             </Link>
           )}
         </>
+        <Link href={`/Image/new/${id}`} passHref>
+          <Button className="custom-btn">Upload Image</Button>
+        </Link>
+        <Link href={`/Image/${id}`} passHref>
+          <Button className="custom-btn">View Images</Button>
+        </Link>
         <div className="d-flex flex-wrap">
           {comicDetail?.reviews?.map((review) => (
             <ReviewCard key={review.id} reviewObj={review} onUpdate={getThisComic} />
