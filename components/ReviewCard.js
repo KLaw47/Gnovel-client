@@ -23,7 +23,7 @@ function ReviewCard({ reviewObj }) {
 
   const { user } = useAuth();
   return (
-    <Card className="card" style={{ width: '20rem', margin: '10px' }}>
+    <Card className="card" style={{ width: '80rem', margin: '10px' }}>
       <Card.Body>
         <Card.Title>{reviewObj.user.firstName}</Card.Title>
         <ReactStars value={reviewObj.rating} edit={false} />
