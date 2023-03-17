@@ -15,7 +15,7 @@ This app is for enthusiasts looking to share opinions and read the opinons of ot
 This application uses React and Next.js for client side, while server side is handled by Python/Django.
 
 ## Loom Video
-[GNovel Loom Vide0](https://www.loom.com/share/49d4f0ff7b374918be0d9a1cb5c43f02).
+[GNovel Loom Video](https://www.loom.com/share/49d4f0ff7b374918be0d9a1cb5c43f02).
 
 ## Features to come
 -Direct integration of Marvel API for more detailed information.
